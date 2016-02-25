@@ -12,7 +12,7 @@ set shortmess+=filmnrxoOtT " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore " Allow for cursor beyond last character
 set history=1000 " Store a ton of history (default is 20)
-set spell " Spell checking on打开拼写检查
+" set spell " Spell checking on打开拼写检查
 set hidden " Allow buffer switching without saving
 set iskeyword-=. " '.' is an end of word designator
 set iskeyword-=# " '#' is an end of word designator
@@ -51,7 +51,7 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 
 set nowrap " Do not wrap long lines
 set backspace=indent,eol,start "在windows版本中vim的退格键模式默认与vi兼容，与我们的使用习惯不太符合，下边这条可以改过来 
-set autoindent " Indent at the same level of the previous line 自动缩进 set ai "设置缩进有三个取值cindent(c风格)、smartindent(智能模式，其实不觉得有什么智能)、autoindent(简单的与上一行保持一致) 
+set smartindent " Indent at the same level of the previous line 自动缩进 set ai "设置缩进有三个取值cindent(c风格)、smartindent(智能模式，其实不觉得有什么智能)、autoindent(简单的与上一行保持一致) 
 set shiftwidth=4 " Use indents of 4 spaces 默认缩进4个空格
 set expandtab " Tabs are spaces, not tabs 用空格替换制表符
 set tabstop=4 " An indentation every four columns 制表符占用4个空格
