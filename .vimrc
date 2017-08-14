@@ -7,7 +7,7 @@ syntax on
 
 set so=7"scrolloff
 
-set cursorcolumn
+"set cursorcolumn
 set cursorline
 
 set mouse-=a
