@@ -53,6 +53,16 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+function! HideNumber()
+    if(&relativenumber == &number)
+        set relativenumber! number!
+    elseif(&number)
+        set number!
+    else
+        set relativenumber!
+    endif
+    set number?
+endfunc
 nnoremap <F2> :call HideNumber()<CR>
 
 nnoremap <F3> :set list! list?<CR>
