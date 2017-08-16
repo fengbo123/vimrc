@@ -1,4 +1,4 @@
-set history=500
+set history=1000
 
 
 set background=dark
@@ -27,6 +27,10 @@ set ignorecase "ignore case when searching
 set smartcase
 set hlsearch
 set incsearch
+
+
+set wildmenu
+set wildmode=full
 
 set encoding=utf8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -68,6 +72,8 @@ nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 nnoremap <F6> :exec exists('syntax_on')? 'syn off' : 'syn on'<CR>
 
+" set cnoremap <C-p> <Up> "have some problems
+" set cnoremap <C-n> <Down>
 set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
                                 "    that won't be autoindented
@@ -104,3 +110,4 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax on
+
