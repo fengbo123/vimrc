@@ -1,11 +1,9 @@
 set history=500
 
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
 
-set so=7"scrolloff
+set background=dark
+
+set so=7 "scrolloff
 
 "set cursorcolumn
 set cursorline
@@ -86,3 +84,23 @@ function! XTermPasteBegin()
   return ""
 endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'flazz/vim-colorschemes'
+call vundle#end()
+
+colorscheme molokai
+
+filetype plugin indent on
+
+
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
