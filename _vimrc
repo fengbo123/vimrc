@@ -1,9 +1,67 @@
+set nocompatible
+
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'flazz/vim-colorschemes'
+
+Plugin 'Raimondi/delimitMate'
+
+Plugin 'tpope/vim-surround'
+
+" Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
+
+Plugin 'scrooloose/nerdtree'
+" autocmd vimenter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+Plugin 'jistr/vim-nerdtree-tabs'
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_smart_startup_focus=1
+
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_expandabbr_key = '<Tab>'
+
+Plugin 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims=1
+
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
+
+call vundle#end()
+
+
+filetype plugin indent on
+
+
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
 set history=1000
 
 
 set background=dark
+colorscheme molokai
 
-set so=7 "scrolloff
+set so=5 "scrolloff
 
 "set cursorcolumn
 set cursorline
@@ -56,10 +114,10 @@ set nowrap "not wrap line
 let mapleader = ","
 let g:mapleader = ","
 
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+" map <Left> <Nop>
+" map <Right> <Nop>
+" map <Up> <Nop>
+" map <Down> <Nop>
 
 function! HideNumber()
     if(&relativenumber == &number)
@@ -202,24 +260,4 @@ function! XTermPasteBegin()
   return ""
 endfunction
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-call vundle#end()
-
-colorscheme molokai
-
-filetype plugin indent on
-
-
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
 
