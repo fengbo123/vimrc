@@ -3,7 +3,7 @@
 1. clone vimrc
     
     ```Shell
-    $ git clone https://github.com/fengbo123/vimrc.git && cp vimrc/_vimrc ~/.vimrc
+    $ git clone https://github.com/fengbo123/vimrc.git && cp vimrc/.vimrc ~/.vimrc
     ```
     
 2. Set up Vundle
