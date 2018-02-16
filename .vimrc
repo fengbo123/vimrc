@@ -104,9 +104,6 @@ let g:NERDTrimTrailingWhitespace = 1
 
 let g:airline#extensions#tabline#enabled = 1
 
-
-set t_Co=256
-
 " Turn on the WiLd menu
 set wildmenu
 set wildmode=full
@@ -131,34 +128,34 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
-" GUI Settings {
 
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " Remove the toolbar
-        set lines=40                " 40 lines of text instead of 24
-        " if !exists("g:spf13_no_big_font")
-            if LINUX() && has("gui_running")
-                set guifont=Consolas\ Regular\ 11
-            elseif OSX() && has("gui_running")
-                set guifont=Consolas\ Regular:h11
-            elseif WINDOWS() && has("gui_running")
-                set guifont=Consolas:h11
-                "  Source_Code_Pro_Medium:h12
-                "  Monaco:h11
-                "  Courier_New:h12
-                "  DejaVu_Sans_Mono:h11
-                "  Ubuntu_Mono:12
-                "  FiraCode_Medium:h12
-                "  InputMono_Medium:h11
-                "  InputMono_Light:h11
-            endif
-        " endif
-    else
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-        endif
-        "set term=builtin_ansi       " Make arrow and other keys work
-    endif
-
+"===========================Environment
+"============identify platform
 "
+silent function! OSX()
+    return has('macunix')
+endfunction
+silent function! LINUX()
+    return has('unix') && !has('macunix') && !has('win32unix')
+endfunction
+silent function! WINDOWS()
+    return  (has('win32') || has('win64'))
+endfunction
+" =============GUI Settings
+if has('gui_running')
+    set guioptions-=T           " Remove the toolbar
+    set lines=40                " 40 lines of text instead of 24
+    if LINUX() && has("gui_running")
+        set guifont=Consolas\ 12,Source\ Code\ Pro\ 14
+    elseif OSX() && has("gui_running")
+        set guifont=Consolas:h12,Source\ Code\ Pro:h10
+    elseif WINDOWS() && has("gui_running")
+        set guifont=Consolas:h12,Source\ Code\ Pro:h10
+    endif
+else
+    if &term == 'xterm' || &term == 'screen'
+        set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+    endif
+    "set term=builtin_ansi       " Make arrow and other keys work
+endif
+"===============GUI Settings end
